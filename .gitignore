@@ -4,8 +4,6 @@ yarn.lock
 .env
 tmp
 uploads
-stacks/*
-!stacks/readme.md
 cron.config.js
 dist
 .nuxt

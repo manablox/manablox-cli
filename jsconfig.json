@@ -4,13 +4,7 @@
         "allowSyntheticDefaultImports": false,
         "baseUrl": "./",
         "paths": {
-            // "manablox/config/*": ["config/*"],
-            // "manablox/services/*": ["services/*"],
-            // "manablox/utils/*": ["utils/*"],
-            // "manablox/routes/*": ["routes/*"],
-            // "manablox/entities/*": ["entities/*"],
-            // "manablox/seeds/*": ["seeds/*"],
-            // "manablox/tools/*": ["tools/*"]
+            // add your aliases here
         }
     },
     "exclude": ["node_modules", "build"]
