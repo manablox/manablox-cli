@@ -21,6 +21,15 @@
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
+  "keywords": [
+      "webpack",
+      "backpack",
+      "es2015",
+      "es2016",
+      "es2017",
+      "es2018",
+      "es2019"
+  ],
   "dependencies": {
     "@babel/core": "^7.7.7",
     "@commitlint/cli": "^8.2.0",
