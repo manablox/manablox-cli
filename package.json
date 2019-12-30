@@ -1,6 +1,6 @@
 {
   "name": "manablox-cli",
-  "version": null,
+  "version": "1.0.14",
   "main": "index.js",
   "repository": "https://github.com/manablox/manablox-cli.git",
   "author": "daspete <daspetemail@gmail.com>",
@@ -9,7 +9,7 @@
     "manablox": "./bin/manablox"
   },
   "scripts": {
-    "release": "standard-version -r 0; git push --follow-tags origin master; npm publish"
+    "release": "standard-version; git push --follow-tags origin master; npm publish"
   },
   "config": {
     "commitizen": {
