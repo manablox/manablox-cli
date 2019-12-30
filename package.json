@@ -1,6 +1,6 @@
 {
   "name": "manablox-cli",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "index.js",
   "repository": "https://github.com/manablox/manablox-cli.git",
   "author": "daspete <daspetemail@gmail.com>",
