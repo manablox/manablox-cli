@@ -18,4 +18,23 @@ The CLI will create a build folder with your compiled index.js and an index.map 
 
 If you want to start a file which is not named index.js, for example you want a file called ```server.js``` then just run ```manablox server.js``` to let it run
 
+## Custom configuration
 
+To add a new config to webpack, you can create a ```manablox.config.js``` file.
+
+For example: 
+
+```js
+module.exports = {
+    webpack: (config, options, webpack) => {
+        // add a custom alias for imports
+        config.resolve = {
+            alias: {
+                '~~': './'
+            }
+        }
+
+        return config
+    }
+}
+```
