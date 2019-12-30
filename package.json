@@ -1,0 +1,23 @@
+{
+  "name": "manablox-cli",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/manablox/manablox-cli.git",
+  "author": "daspete <daspetemail@gmail.com>",
+  "license": "MIT",
+  "bin": {
+    "manablox": "./bin/manablox"
+  },
+  "dependencies": {
+    "@babel/core": "^7.7.7",
+    "babel-loader": "^8.0.6",
+    "babel-preset-backpack": "^0.8.4",
+    "friendly-errors-webpack-plugin": "^1.7.0",
+    "json-loader": "^0.5.7",
+    "nodemon": "^2.0.2",
+    "ramda": "^0.26.1",
+    "source-map-support": "^0.5.16",
+    "webpack": "^4.41.4",
+    "webpack-node-externals": "^1.7.2"
+  }
+}

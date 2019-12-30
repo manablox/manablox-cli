@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "target": "es2018",
+        "allowSyntheticDefaultImports": false,
+        "baseUrl": "./",
+        "paths": {
+            // "manablox/config/*": ["config/*"],
+            // "manablox/services/*": ["services/*"],
+            // "manablox/utils/*": ["utils/*"],
+            // "manablox/routes/*": ["routes/*"],
+            // "manablox/entities/*": ["entities/*"],
+            // "manablox/seeds/*": ["seeds/*"],
+            // "manablox/tools/*": ["tools/*"]
+        }
+    },
+    "exclude": ["node_modules", "build"]
+}

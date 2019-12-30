@@ -1,0 +1,137 @@
+#!/usr/bin/env node
+
+const { spawn } = require('child_process')
+// const spawn = require('cross-spawn')
+const webpack = require('webpack')
+const nodemon = require('nodemon')
+const once = require('ramda').once
+const path = require('path')
+const fs = require('fs')
+
+const pkg = require('../package.json')
+const paths = require('../config/paths')
+const defaultConfig = require('../config/webpack.config')
+
+
+let cmd = null
+if(process.argv.length >= 2){
+    cmd = process.argv.slice(2)
+}
+
+if(!cmd){
+    console.log('No file to build selected')
+    process.exit(0)
+}
+
+// TODO: more checks
+let sourceFile = 'index.js'
+let sourcePath = process.cwd() + '/' + cmd
+sourcePath = sourcePath.split('/').filter((item) => { return item != '' }).join('/')
+console.log(sourcePath)
+if(sourcePath.indexOf('.js') === -1){
+    sourcePath += `/${ sourceFile }`
+}else{
+    sourceFile = sourcePath.split('/').reverse()[0]
+}
+sourcePath = sourcePath.split('/').filter((item) => { return item != '' }).join('/')
+
+paths.sourceFile = sourceFile.replace('.js', '')
+paths.sourcePath = `/${ sourcePath }`
+
+const configPath = path.resolve('manablox.config.js')
+const options = {
+    env: process.env.NODE_ENV || 'production',
+    paths
+}
+
+
+let userConfig = {}
+if(fs.existsSync(configPath)){
+    const userConfigModule = require(configPath)
+    userConfig = userConfigModule.default || userConfigModule
+}
+
+
+const serverConfig = userConfig.webpack
+    ? userConfig.webpack(defaultConfig(options), options, webpack)
+    : defaultConfig(options)
+
+
+process.on('SIGINT', process.exit)
+
+
+
+const serverCompiler = webpack(serverConfig)
+serverCompiler.run((error, stats) => {
+    if(error || stats.hasErrors()){
+        process.exitCode = 1
+    }else{
+        const proc = spawn('node', [`${ paths.buildPath }/${ sourceFile }`], { stdio: 'inherit' })
+        proc.on('close', (code) => { process.exit(code) })
+        proc.on('error', (err) => { console.error(err); process.exit(1) })
+
+        //nodemon({ script: paths.buildPath + '/main.js', watch: paths.buildPath }).on('quit', process.exit)
+
+    }
+
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+const defaultCommand = 'start'
+const commands = new Set([
+    defaultCommand
+])
+
+let command = process.argv[2]
+let args = null
+
+// --version or -v option
+if(new Set(['--version', '-v']).has(command)){
+    console.log('manablox v' + pkg.version)
+    process.exit(0)
+}
+
+// --help or -h option
+if(new Set(['--help', '-h']).has(command)){
+    console.log('manablox help')
+    process.exit(0)
+}
+
+
+
+if(commands.has(command)){
+    args = process.argv.slice(3)
+}else{
+    command = defaultCommand
+    args = process.argv.slice(2)
+}
+
+
+const script = path.resolve(path.join(__dirname, 'main'))
+
+const startProcess = () => {
+    const proc = spawn(script, args, { stdio: 'inherit' })
+    proc.on('close', (code) => { process.exit('ddd',code) })
+    proc.on('error', (err) => { console.error(err); process.exit(1) })
+    return proc
+}
+
+const proc = startProcess()
+*/
