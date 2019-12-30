@@ -9,7 +9,7 @@
     "manablox": "./bin/manablox"
   },
   "scripts": {
-    "release": "standard-version; git push --follow-tags origin master; npm publish"
+    "release": "standard-version -a; git push --follow-tags origin master; npm publish"
   },
   "config": {
     "commitizen": {
