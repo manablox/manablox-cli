@@ -4,7 +4,6 @@ const { spawn } = require('child_process')
 // const spawn = require('cross-spawn')
 const webpack = require('webpack')
 const nodemon = require('nodemon')
-const once = require('ramda').once
 const path = require('path')
 const fs = require('fs')
 
