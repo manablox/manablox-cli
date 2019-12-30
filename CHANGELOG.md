@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.15](https://github.com/manablox/manablox-cli/compare/v1.0.14...v1.0.15) (2019-12-30)
+
+
+### Code updates
+
+* updated standard-version config ([72f947d](https://github.com/manablox/manablox-cli/commit/72f947d210d2d8f5a2d4fca4d444e90c2b5816cc))
+
 ### [1.0.14](https://github.com/manablox/manablox-cli/compare/v1.0.13...v1.0.14) (2019-12-30)
 
 
