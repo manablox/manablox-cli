@@ -4,9 +4,9 @@ module.exports = {
         { type: "fix", "section": "Bug Fixes" },
         { type: "chore", "section": "Code updates" },
         { type: "docs", "section": "Documentations" },
-        { type: "style", "hidden": true },
-        { type: "refactor", "hidden": true },
-        { type: "perf", "hidden": true },
-        { type: "test", "hidden": true }
+        { type: "style", "section": "Code style updates" },
+        { type: "refactor", "section": "Refactorings" },
+        { type: "perf", "section": "Performance updates" },
+        { type: "test", "section": "Test updates" }
     ]
 }
