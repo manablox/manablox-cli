@@ -1,1 +1,1 @@
-console.log('bla')
+console.log('Hello index.js')

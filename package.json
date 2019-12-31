@@ -1,9 +1,10 @@
 {
   "name": "manablox-cli",
   "version": "1.0.15",
-  "main": "index.js",
+  "description": "zero config webpack runner",
+  "main": "bin/manablox",
   "repository": "https://github.com/manablox/manablox-cli.git",
-  "author": "daspete <daspetemail@gmail.com>",
+  "author": "DasPeTe <daspetemail@gmail.com>",
   "license": "MIT",
   "bin": {
     "manablox": "./bin/manablox"
@@ -35,11 +36,14 @@
     "@commitlint/config-conventional": "^8.2.0",
     "babel-loader": "^8.0.6",
     "babel-preset-backpack": "^0.8.4",
+    "commander": "^4.0.1",
     "commitizen": "^4.0.3",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "husky": "^3.1.0",
+    "inquirer": "^7.0.1",
     "json-loader": "^0.5.7",
     "nodemon": "^2.0.2",
+    "ramda": "^0.26.1",
     "source-map-support": "^0.5.16",
     "standard-version": "^7.0.1",
     "webpack": "^4.41.4",

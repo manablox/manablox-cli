@@ -79,7 +79,7 @@ module.exports = (options) => {
         // is set to CommonJS2
         output: {
             path: options.paths.serverBuildPath,
-            filename: `${ options.paths.sourceFile }.js`,
+            filename: `${ options.paths.sourceFile }`,
             sourceMapFilename: `${ options.paths.sourceFile }.map`,
             publicPath: options.paths.publicPath,
             libraryTarget: 'commonjs2',
