@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/manablox/manablox-cli/compare/v1.0.15...v1.1.0) (2019-12-31)
+
+
+### Features
+
+* added more options and documentation to the commands ([65fa7e3](https://github.com/manablox/manablox-cli/commit/65fa7e38d282846e944e3070e9830b710d8f39d1))
+
 ### [1.0.15](https://github.com/manablox/manablox-cli/compare/v1.0.14...v1.0.15) (2019-12-30)
 
 
