@@ -4,7 +4,7 @@
   "description": "zero config webpack runner",
   "main": "bin/manablox",
   "repository": "https://github.com/manablox/manablox-cli.git",
-  "author": "DasPeTe <daspetemail@gmail.com>",
+  "author": "daspete <daspetemail@gmail.com>",
   "license": "MIT",
   "bin": {
     "manablox": "./bin/manablox"
