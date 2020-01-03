@@ -98,14 +98,6 @@ module.exports = (options) => {
                 }
             ],
         },
-        stats: {
-            warningsFilter: (warning) => {
-                process.exit(1)
-                // Critical dependency
-                return RegExp("node_modules/express/lib/view.js").test(warning);
-            }
-        },
-
         // A few commonly used plugins have been removed from Webpack v4.
         // Now instead, these plugins are avaliable as "optimizations".
         // @see https://webpack.js.org/configuration/optimization/
