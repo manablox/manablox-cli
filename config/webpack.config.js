@@ -42,8 +42,9 @@ module.exports = (options) => {
         // function that ignores node_modules when bundling in Webpack.
         // @see https://github.com/liady/webpack-node-externals
         externals: [
+            { 'express': { commonjs: 'express' } },
             nodeExternals({
-                modulesFromFile: false,
+                modulesFromFile: true,
                 whitelist: [
                     /^manablox/,
                     /\.(eot|woff|woff2|ttf|otf)$/,
