@@ -12,6 +12,8 @@ const command = new Command({
     name: 'run [options] [file]',
     options: moduleConfig.options,
     action: (commandInstance, scriptFilename) => {
+        if(!scriptFilename) scriptFilename = 'index.js'
+
         if(!scriptFilename.endsWith('.js')){
             scriptFilename = path.join(scriptFilename, 'index.js')
         }

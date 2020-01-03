@@ -26,6 +26,8 @@ const command = new Command({
         const runOnly = !!commandInstance.runOnly
         const asService = !!commandInstance.asService
 
+        if(!scriptFilename) scriptFilename = 'index.js'
+
         if(!scriptFilename.endsWith('.js')){
             scriptFilename = path.join(scriptFilename, 'index.js')
         }
