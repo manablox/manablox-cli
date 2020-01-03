@@ -43,7 +43,7 @@ module.exports = (options) => {
         // @see https://github.com/liady/webpack-node-externals
         externals: [
             nodeExternals({
-                modulesFromFile: true,
+                modulesFromFile: false,
                 whitelist: [
                     /^manablox/,
                     /\.(eot|woff|woff2|ttf|otf)$/,
