@@ -45,9 +45,7 @@ module.exports = (options) => {
             nodeExternals({
                 modulesFromFile: true,
                 whitelist: [
-                    'express',
-                    'body-parser',
-                    /^manablox/,
+                    /manablox/,
                     /\.(eot|woff|woff2|ttf|otf)$/,
                     /\.(svg|png|jpg|jpeg|gif|ico|webm)$/,
                     /\.(mp4|mp3|ogg|swf|webp)$/,
@@ -64,7 +62,7 @@ module.exports = (options) => {
         // Since we are wrapping our own webpack config, we need to properly resolve
         // Backpack's and the given user's node_modules without conflict.
         resolve: {
-            extensions: ['.js', '.json',],
+            extensions: ['.js', '.json'],
             // modules: [config.userNodeModulesPath, path.resolve(__dirname, '../node_modules')]
         },
         resolveLoader: {
@@ -100,6 +98,14 @@ module.exports = (options) => {
                 }
             ],
         },
+        stats: {
+            warningsFilter: (warning) => {
+                process.exit(1)
+                // Critical dependency
+                return RegExp("node_modules/express/lib/view.js").test(warning);
+            }
+        },
+
         // A few commonly used plugins have been removed from Webpack v4.
         // Now instead, these plugins are avaliable as "optimizations".
         // @see https://webpack.js.org/configuration/optimization/
