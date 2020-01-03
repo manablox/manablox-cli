@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.2](https://github.com/manablox/manablox-cli/compare/v1.2.1...v1.2.2) (2020-01-03)
+
+
+### Bug Fixes
+
+* added express to external config ([2ceba6a](https://github.com/manablox/manablox-cli/commit/2ceba6a9c862d5a1fdeb1ea313e5336d6ca9756e))
+
 ### [1.2.1](https://github.com/manablox/manablox-cli/compare/v1.2.0...v1.2.1) (2020-01-03)
 
 
