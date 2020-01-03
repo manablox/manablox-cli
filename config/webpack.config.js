@@ -45,7 +45,8 @@ module.exports = (options) => {
             nodeExternals({
                 modulesFromFile: true,
                 whitelist: [
-                    /^express/,
+                    'express',
+                    'body-parser',
                     /^manablox/,
                     /\.(eot|woff|woff2|ttf|otf)$/,
                     /\.(svg|png|jpg|jpeg|gif|ico|webm)$/,
