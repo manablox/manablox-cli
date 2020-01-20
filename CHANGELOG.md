@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/manablox/manablox-cli/compare/v1.2.7...v1.3.0) (2020-01-20)
+
+
+### Features
+
+* autoattach debugger on dev ([6a71ed6](https://github.com/manablox/manablox-cli/commit/6a71ed6501805f2125629a41611f9e128c80c6e9))
+
 ### [1.2.7](https://github.com/manablox/manablox-cli/compare/v1.2.6...v1.2.7) (2020-01-03)
 
 
