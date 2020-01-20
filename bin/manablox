@@ -37,7 +37,14 @@ for(let i = 0; i < internalCommands.length; i++){
     }
 
     task.action(() => {
-        const commandInstance = spawn('node', [commandPath, 'run', ...process.argv.slice(3)], { stdio: 'inherit' })
+        console.log('START')
+        const taskParams = [
+            commandPath,
+            'run', 
+            ...process.argv.slice(3),
+            
+        ]
+        const commandInstance = spawn('node', taskParams, { stdio: 'inherit' })
         commandInstance.on('close', (code) => { process.exit(code) })
         commandInstance.on('error', (err) => { console.error(err); process.exit(1) })
     })
