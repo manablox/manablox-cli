@@ -49,7 +49,7 @@ const command = new Command({
                 .map(entry => path.join(serverCompiler.options.output.path, `${ paths.sourceFile }`))
 
             nodemon({
-                exec: 'node --inspect=0.0.0.0:9229',
+                exec: 'node',
                 script: serverPaths[0],
                 watch: serverPaths,
                 nodeArgs: [...process.argv.slice(2)]
