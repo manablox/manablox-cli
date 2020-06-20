@@ -86,8 +86,11 @@ const command = new Command({
                     author: '[TODO]'
                 })
 
+                let mode = '644'
+                if(type == 'bash') mode = '647'
+
                 fsJetpack.remove(target)
-                fsJetpack.file(target, { content: renderedFileContent });
+                fsJetpack.file(target, { content: renderedFileContent, mode: mode })
             }else{
                 fsJetpack.remove(target)
                 fsJetpack.copy(`${ sourcePath }/${ file }`, target)
