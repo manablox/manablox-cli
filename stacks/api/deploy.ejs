@@ -1,0 +1,4 @@
+#!/bin/bash
+
+heroku config:set $(cat .env-$1 | sed '/^$/d; /#[[:print:]]*$/d') --app <%= name %>--$1
+git push $1 $2

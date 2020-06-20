@@ -37,7 +37,6 @@ for(let i = 0; i < internalCommands.length; i++){
     }
 
     task.action(() => {
-        console.log('START')
         const taskParams = [
             commandPath,
             'run', 

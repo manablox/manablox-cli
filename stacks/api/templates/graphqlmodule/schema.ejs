@@ -1,0 +1,35 @@
+type Query {
+    <% schema.queries.forEach(function(query){ %>
+        <%= query.name %>
+            <% if(query.params){ %>
+                (
+                    <% Object.keys(query.params).forEach(function(paramName){ %><%= paramName %>: <%= query.params[paramName] %>
+                    <% }) %>
+                )
+            <% } %> : <%= query.returns %>
+    <% }); %>
+}
+
+type Mutation {
+    <% schema.mutations.forEach(function(mutation){ %>
+        <%= mutation.name %>
+            <% if(mutation.params){ %>
+                (
+                    <% Object.keys(mutation.params).forEach(function(paramName){ %><%= paramName %>: <%= mutation.params[paramName] %>
+                    <% }) %>
+                )
+            <% } %> : <%= mutation.returns %>
+    <% }); %>
+}
+
+<% schema.types.forEach(function(type){ %>
+    type <%= type.name %> {
+        <% type.fields.forEach(function(field){ %> <%= field.name %>: <%= field.type %><% }) %>
+    }
+<% }) %>
+
+<% schema.inputTypes.forEach(function(type){ %>
+    input <%= type.name %> {
+        <% type.fields.forEach(function(field){ %> <%= field.name %>: <%= field.type %><% }) %>
+    }
+<% }) %>

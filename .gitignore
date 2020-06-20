@@ -7,3 +7,4 @@ uploads
 cron.config.js
 dist
 .nuxt
+test/stacks/*

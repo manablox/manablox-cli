@@ -1,0 +1,61 @@
+{
+  "name": "<%= name %>",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "<%= repository %>",
+  "author": "<%= author %>",
+  "license": "MIT",
+  "engines": {
+    "node": "13.x"
+  },
+  "scripts": {
+    "dev": "manablox dev",
+    "postinstall": "manablox build",
+    "start": "node build/index.js",
+
+    "create:develop": "./create develop master",
+    "create:alpha": "./create alpha master",
+    "create:beta": "./create beta master",
+    "create:production": "./create production master",
+
+    "deploy:develop": "./deploy develop master",
+    "deploy:alpha": "./deploy alpha master",
+    "deploy:beta": "./deploy beta master",
+    "deploy:production": "./deploy production master",
+    
+    "log:develop": "heroku logs --tail --remote develop",
+    "log:alpha": "heroku logs --tail --remote alpha",
+    "log:beta": "heroku logs --tail --remote beta",
+    "log:production": "heroku logs --tail --remote production",
+
+    "datatypes:create": "manablox build -r tools/datatypegenerator"
+  },
+  "dependencies": {
+    "@graphql-modules/core": "^0.7.17",
+    "@graphql-modules/di": "^0.7.17",
+    "apollo-link-batch-http": "^1.2.14",
+    "apollo-link-ws": "^1.0.20",
+    "apollo-server-express": "^2.15.0",
+    "apollo-utilities": "^1.3.4",
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.3",
+    "ejs-loader": "^0.5.0",
+    "express": "^4.17.1",
+    "faker": "^4.1.0",
+    "fs-jetpack": "^2.4.0",
+    "graphql": "^15.1.0",
+    "graphql-subscriptions": "^1.1.0",
+    "graphql-tag": "^2.10.3",
+    "helmet": "^3.23.1",
+    "manablox-cli": "manablox/manablox-cli",
+    "mongodb": "^3.5.9",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "prettier": "^2.0.5",
+    "subscriptions-transport-ws": "^0.9.16"
+  }
+}

@@ -1,0 +1,89 @@
+export default {
+    Query: {
+        <% schema.queries.forEach(function(query){ %>
+            async <%= query.resolver.name %>(
+                root, 
+                { <% Object.keys(query.params).forEach(function(queryParamName){ %><%= queryParamName %>, <% }) %>}, 
+                {
+                    <% query.resolver.provider.forEach(function(provider){ %>
+                        <%= provider.capitalize() %>Provider,                        
+                    <% }) %>
+                }
+            ){
+                try {
+                    <%= query.resolver.callback %>
+                }catch(err){
+                    throw new Exception('<%= query.resolver.errorKey %>')
+                }
+            }
+        <% }); %>
+        
+    },
+
+    Mutation: {
+        <% schema.mutations.forEach(function(query){ %>
+            async <%= query.resolver.name %>(
+                root, 
+                { <% Object.keys(query.params).forEach(function(queryParamName){ %><%= queryParamName %>, <% }) %>},
+                {
+                    <% query.resolver.provider.forEach(function(provider){ %>
+                        <%= provider.capitalize() %>Provider,                        
+                    <% }) %>
+                }
+            ){
+                try {
+                    <%= query.resolver.callback %>
+                }catch(err){
+                    throw new Exception('<%= query.resolver.errorKey %>')
+                }
+            }
+        <% }); %>
+    },
+
+    <%
+    let typeResolvers = []
+    schema.types.map((type) => {
+            let fieldsWithResolvers = type.fields.filter((field) => {
+            return typeof field.resolver !== 'undefined'
+        })
+
+        if(fieldsWithResolvers.length == 0) return false
+
+        const typeResolver = {
+            name: type.name,
+            resolver: []
+        }
+
+        fieldsWithResolvers.forEach((field) => {
+            typeResolver.resolver.push({ field: field, resolver: field.resolver })
+        })
+
+        typeResolvers.push(typeResolver)
+    })
+    %>
+
+    <% typeResolvers.forEach((typeResolver) => {%>
+        <%= typeResolver.name %>: {
+            <% typeResolver.resolver.forEach((fieldResolver) => {%>
+                async <%= fieldResolver.field.name %>(
+                    parent,
+                    { <% Object.keys(fieldResolver.field.params).forEach((fieldParam) => {%> <%= fieldParam %>, <%}) %> },
+                    <% if(fieldResolver.resolver.provider){ %>
+                        {
+                            <% fieldResolver.resolver.provider.forEach(function(provider){ %>
+                                <%= provider.capitalize() %>Provider,                        
+                            <% }) %>
+                        }
+                    <% } %>
+                ){
+                    try {
+                        <%= fieldResolver.field.resolver.callback %>
+                    }catch(err){
+                        throw new Exception('<%= fieldResolver.field.resolver.errorKey %>')
+                    }
+                }
+            <%}) %>
+        }
+    <%}) %>
+    
+}

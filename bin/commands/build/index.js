@@ -32,9 +32,14 @@ const command = new Command({
             scriptFilename = path.join(scriptFilename, 'index.js')
         }
 
-        paths.sourcePath = path.join(process.cwd(), scriptFilename)
-        paths.sourceFile = paths.sourcePath.split(path.sep).reverse()[0]
 
+        paths.sourcePath = path.join(process.cwd(), scriptFilename)
+        paths.sourceFile = scriptFilename.replace(/\//g, '_')
+
+        // paths.sourcePath = path.join(process.cwd(), scriptFilename)
+        // paths.sourceFile = paths.sourcePath.split(path.sep).reverse()[0]
+
+        
         const configPath = path.resolve('manablox.config.js')
         const options = {
             env: process.env.NODE_ENV || 'production',

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+heroku apps:destroy --app <%= name %>--$1 --confirm <%= name %>--$1 --remote $1
+heroku apps:create <%= name %>--$1  --remote $1 --region eu
+
+./deploy <%= name %> $1 $2

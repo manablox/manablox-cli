@@ -1,0 +1,43 @@
+import Provider from '~~/services/graphql/provider'
+
+export default class UserProvider extends Provider {
+    constructor(collectionName){
+        super(collectionName)
+    }
+
+    <% schema.mutations.forEach((mutation) => {  %>
+        <% if(mutation.provider) mutation.provider.forEach((provider) => { %>
+            async <%= provider.name %>(
+                <% if(provider.params){ 
+                    provider.params.forEach((param) => { %>
+                        <%= param %>,
+                    <% })
+                } %>
+            ){
+                try {
+                    <%= provider.callback %>
+                }catch(err){
+                    throw new Exception('<%= provider.errorKey %>')
+                }
+            }
+        <% }) %>
+    <% }) %>
+
+    <% schema.queries.forEach((query) => {  %>
+        <% if(query.provider) query.provider.forEach((provider) => { %>
+            async <%= provider.name %>(
+                <% if(provider.params){ 
+                    provider.params.forEach((param) => { %>
+                        <%= param %>,
+                    <% })
+                } %>
+            ){
+                try {
+                    <%= provider.callback %>
+                }catch(err){
+                    throw new Exception('<%= provider.errorKey %>')
+                }
+            }
+        <% }) %>
+    <% }) %>
+}

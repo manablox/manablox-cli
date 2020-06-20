@@ -18,8 +18,13 @@ const command = new Command({
             scriptFilename = path.join(scriptFilename, 'index.js')
         }
 
+
         paths.sourcePath = path.join(process.cwd(), scriptFilename)
-        paths.sourceFile = paths.sourcePath.split(path.sep).reverse()[0]
+        paths.sourceFile = scriptFilename.replace(/\//g, '_')
+        
+        // paths.sourcePath = path.join(process.cwd(), scriptFilename)
+        // paths.sourceFile = paths.sourcePath.split(path.sep).reverse()[0]
+
 
         const configPath = path.resolve('manablox.config.js')
         const options = {
@@ -40,7 +45,7 @@ const command = new Command({
 
         process.on('SIGINT', process.exit)
 
-
+        
         const serverCompiler = webpack(serverConfig)
 
         const startServer = () => {
