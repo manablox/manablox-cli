@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.1](https://github.com/manablox/manablox-cli/compare/v1.4.0...v1.4.1) (2020-06-20)
+
+
+### Bug Fixes
+
+* fixed some config errors ([26d020f](https://github.com/manablox/manablox-cli/commit/26d020fa4e9c44094e6a4da767d660e4556ddb57))
+
 ## [1.4.0](https://github.com/manablox/manablox-cli/compare/v1.3.1...v1.4.0) (2020-06-20)
 
 
